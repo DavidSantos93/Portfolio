@@ -10,13 +10,30 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm, ContactF
 from flask_gravatar import Gravatar
 from functools import wraps
 import os
+from flask_mail import Mail, Message
 
 
 # delete this code
 # os.environ['SECRET_APP_KEY'] = "Supcuz"
+# os.environ['MAIL_CONTACTS'] = "davidsantostrent1@gmail.com"
+# os.environ['MAIL_PASSWORD'] = "wanted1993"
+# os.environ.get('MAIL_PASSWORD', "Not Set")
+# os.environ.get('MAIL_CONTACTS', "Not Set")
+
 
 app = Flask(__name__)
+
+mail = Mail()
+
 app.config['SECRET_KEY'] = os.environ.get('SECRET_APP_KEY', "Not Set")
+
+app.config["MAIL_SERVER"] = "smtp.gmail.com"
+app.config["MAIL_PORT"] = 587
+app.config["MAIL_USE_SSL"] = True
+app.config["MAIL_USERNAME"] = "david_santoos@hotmail.com"
+app.config["MAIL_PASSWORD"] = "Eminem1993"
+
+mail.init_app(app)
 
 ckeditor = CKEditor(app)
 Bootstrap(app)
@@ -193,6 +210,13 @@ def contact():
     form = ContactForm()
 
     if request.method == "POST":
+        msg = Message(form.name.data, sender="david_santoos@hotmail.com",
+                      recipients=['davidcostasantos93@gmail.com'])
+        msg.body = """
+              From: %s <%s>
+              %s
+              """ % (form.phone.data, form.email.data, form.message.data)
+        mail.send(msg)
         return 'Form posted.'
     elif request.method == "GET":
         return render_template("contact.html", form=form)

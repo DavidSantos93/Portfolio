@@ -23,7 +23,37 @@
         <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
         <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
         <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
-        <form name="sentMessage" id="contactForm" novalidate>
+
+        {% extends 'bootstrap/base.html' %}
+        {% import "bootstrap/wtf.html" as wtf %}
+
+        {% block content %}
+          <h2>Contact</h2>
+<!-- no need for flash messages since the validators do this kinda of work.
+           {% for message in get_flashed_messages() %}
+               <div class="flash">{{ message }}</div>
+           {% endfor %}-->
+
+          <form action="{{ url_for('contact') }}" method=post>
+
+           {{ form.name.label }}
+           {{ form.name }}
+
+           {{ form.email.label }}
+           {{ form.email }}
+
+           {{ form.phone.label }}
+           {{ form.phone }}
+
+           {{ form.message.label }}
+           {{ form.message }}
+
+           {{ form.submit }}
+          </form>
+      </div>
+    </div>
+  </div>
+        <!--<form name="sentMessage" id="contactForm" novalidate>
           <div class="control-group">
             <div class="form-group floating-label-form-group controls">
               <label>Name</label>
@@ -55,11 +85,10 @@
           <br>
           <div id="success"></div>
           <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
-        </form>
-      </div>
-    </div>
-  </div>
+        </form>-->
 
-  <hr>
 
-  {% include "footer.html" %}
+
+{% include "footer.html" %}
+{% endblock %}
+<!-- endblock added to the end because somehow the footer was not showing up. -->

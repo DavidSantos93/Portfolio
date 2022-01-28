@@ -12,7 +12,8 @@ from functools import wraps
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get('SECRET_APP_KEY')
+app.config['SECRET_KEY'] = "Supcuz"
+    #os.environ.get('SECRET_APP_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app,

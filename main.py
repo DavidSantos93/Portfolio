@@ -28,10 +28,10 @@ mail = Mail()
 app.config['SECRET_KEY'] = os.environ.get('SECRET_APP_KEY', "Not Set")
 
 app.config["MAIL_SERVER"] = "smtp.gmail.com"
-app.config["MAIL_PORT"] = 587
+app.config["MAIL_PORT"] = 465
 app.config["MAIL_USE_SSL"] = True
-app.config["MAIL_USERNAME"] = "david_santoos@hotmail.com"
-app.config["MAIL_PASSWORD"] = "Eminem1993"
+app.config["MAIL_USERNAME"] = "davidsantostrent1@gmail.com"
+app.config["MAIL_PASSWORD"] = "wanted1993"
 
 mail.init_app(app)
 
@@ -215,9 +215,9 @@ def contact():
         msg.body = """
               From: %s <%s>
               %s
-              """ % (form.phone.data, form.email.data, form.message.data)
+              """ % (form.email.data, form.phone.data, form.message.data)
         mail.send(msg)
-        return 'Form posted.'
+        return render_template('contact.html', success=True)
     elif request.method == "GET":
         return render_template("contact.html", form=form)
 

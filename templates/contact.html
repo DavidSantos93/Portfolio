@@ -34,6 +34,11 @@
                <div class="flash">{{ message }}</div>
            {% endfor %}-->
 
+          {% if success %}
+            <p>Thank you for your message. We'll get back to you shortly.</p>
+
+          {% else %}
+
           <form action="{{ url_for('contact') }}" method=post>
 
            {{ form.name.label }}
@@ -88,7 +93,7 @@
         </form>-->
 
 
-
+{% endif %}
 {% include "footer.html" %}
 {% endblock %}
 <!-- endblock added to the end because somehow the footer was not showing up. -->

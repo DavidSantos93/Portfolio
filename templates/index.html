@@ -1,56 +1,329 @@
 {% include "header.html" %}
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1470092306007-055b6797ca72?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')">
+  <header class="masthead" style="background-image: url('https://images.pexels.com/photos/3038740/pexels-photo-3038740.jpeg?cs=srgb&dl=pexels-vlado-paunovic-3038740.jpg&fm=jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="site-heading">
-            <h1>Thinking is a virtue</h1>
-            <span class="subheading">“Thinking is man’s only basic virtue, from which all the others proceed." - Ayn Rand</span>
+            <h1>Hi, I'm David</h1>
+            <span class="subheading">Welcome to my Portfolio.</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <div class="container">
+<!-- Brief Intro -->
+<div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        {% for post in all_posts %}
-        <div class="post-preview">
-          <a href="{{ url_for('show_post', post_id=post.id) }}">
-            <h2 class="post-title">
-              {{post.title}}
-            </h2>
-            <h3 class="post-subtitle">
-              {{post.subtitle}}
-            </h3>
-          </a>
-          <p class="post-meta">Posted by
-<!--              Changed from post.author as post.author is now a User object.       -->
-            <a href="#">{{post.author.name}}</a>
-            on {{post.date}}
-            {% if current_user.id == 1 %}
-              <a href="{{url_for('delete_post', post_id=post.id) }}">✘</a>
-            {% endif %}
-          </p>
-        </div>
-        <hr>
-        {% endfor %}
-
-
-        <!-- New Post -->
-        {% if current_user.id == 1 %}
-          <div class="clearfix">
-            <a class="btn btn-primary float-right" href="{{url_for('add_new_post')}}">Create New Post</a>
-          </div>
-        {% endif %}
+        <p>- From Electromechanical Engineering Bachelor to Data.<br>
+        - Open source fan (Python and R are my primary tools).<br>
+        - Outside of data, I enjoy outdoors exercise, books, films and music.<br>
+        - Continuous learning is a must as well as continuing to development my data analysis skills.</p>
+        <a class="btn btn-outline-dark" href="/about">MORE ABOUT ME</a>
+        <p>Have fun in browsing through the content and thank you for your visit!</p>
       </div>
     </div>
+</div>
+
+    <!-- Main Content ( First Carousel) -->
+<div class="portfolio-heading">
+  <h1>Portfolio</h1>
+  <p style="font-size:20px">Brief explanation and/or link to view the project itself</p>
+</div>
+
+<div class="works-heading">
+  <h3>Notebooks</h3>
+</div>
+
+<div class="container my-4">
+  <!--Carousel Wrapper-->
+  <div id="multi-item-example2" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+    <!--Controls-->
+    <div class="controls-top" style="text-align:center">
+      <a class="btn-floating" href="#multi-item-example2" data-slide="prev"><i class="fa fa-chevron-left" style="font-size:50px"></i></a>
+      <a class="btn-floating" href="#multi-item-example2" data-slide="next"><i class="fa fa-chevron-right" style="font-size:50px"></i></a>
+    </div>
+    <br>
+    <!--/.Controls-->
+
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#multi-item-example2" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item-example2" data-slide-to="1"></li>
+    </ol>
+    <!--/.Indicators-->
+
+   <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="static/img/Singapore plot.png" alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Singapore's Airbnb Listings Study</h4>
+                <p class="card-text">I take a look and analyse a dataset from 2019 regarding Airbnb listings in Singapore using R.
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 17-01-2022 </p>
+                <a class="btn btn-outline-dark" href="/post/1">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="static/img/bike_routes_plot.png"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Divvy's Case Study</h4>
+                <p class="card-text">Case study for the course Google Data Analytics, where I perform an analysis to get
+                  insights and respond to the business task using R.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 22-01-2022 </p>
+                <a class="btn btn-outline-dark" href="/post/2">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Bellabeat Case Study</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/3">Check Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.First slide-->
+
+      <!--Second slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/4">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/5">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/6">Check Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Second slide-->
+
+    </div>
+    <!--/.Slides-->
+
   </div>
-  <hr>
+  <!--/.Carousel Wrapper-->
+
+  <br><br>
+  <!-- Main Content ( Second Carousel) -->
+  <div class="works-heading">
+  <h3>Other works.</h3>
+
+  </div>
+<div class="container my-4">
+  <!--Carousel Wrapper-->
+  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+
+    <!--Controls-->
+    <div class="controls-top" style="text-align:center">
+      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left" style="font-size:50px"></i></a>
+      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right" style="font-size:50px"></i></a>
+    </div>
+    <br>
+    <!--/.Controls-->
+
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item-example" data-slide-to="1"></li>
+    </ol>
+    <!--/.Indicators-->
+
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+
+      <!--First slide-->
+      <div class="carousel-item active">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Simple Morse Code Converter</h4>
+                <p class="card-text">Python script for translating Morse Code to English and from English to Morse Code.
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 01-12-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/7">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/8">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/9">Check Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.First slide-->
+
+      <!--Second slide-->
+      <div class="carousel-item">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/10">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/11">Check Post</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 clearfix d-none d-md-block">
+            <div class="card mb-2">
+              <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg"
+                   alt="Card image cap">
+              <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                  card's content.</p>
+                <p class="post-meta">Posted by
+                <a href="/about">David Santos</a>
+                 on 30-02-2021 </p>
+                <a class="btn btn-outline-dark" href="/post/12">Check Post</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--/.Second slide-->
+
+    </div>
+    <!--/.Slides-->
+
+  </div>
+  <!--/.Carousel Wrapper-->
+
+</div>
+
+</div>
 
 {% include "footer.html" %}

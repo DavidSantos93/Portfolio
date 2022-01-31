@@ -159,12 +159,13 @@ def login():
     if form.validate_on_submit():
         email = form.email.data
         password = form.password.data
-        #  Find user by email entered **********
+        #  Find user by email entered
         user = User.query.filter_by(email=email).first()
-        # Email doesn't exist **********
+        # If email doesn't exist
         if not user:
             flash('That email does not exist. Please try again.')
             return redirect(url_for('login'))
+        # If password is incorrect
         elif not check_password_hash(user.password, password):
             flash('Password is incorrect. Please try again.')
             return redirect(url_for('login'))

@@ -12,15 +12,6 @@ from functools import wraps
 import os
 from flask_mail import Mail, Message
 
-
-# delete this code
-# os.environ['SECRET_APP_KEY'] = "Supcuz"
-# os.environ['MAIL_CONTACTS'] = "davidsantostrent1@gmail.com"
-# os.environ['MAIL_PASSWORD'] = "wanted1993"
-# os.environ.get('MAIL_PASSWORD', "Not Set")
-# os.environ.get('MAIL_CONTACTS', "Not Set")
-
-
 app = Flask(__name__)
 
 mail = Mail()
@@ -55,7 +46,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
-# Create admin-only decorator
+# Creating admin-only decorator
 def admin_only(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -72,7 +63,7 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
-# #CONFIGURE TABLES
+# CONFIGURING TABLES
 
 class User(UserMixin, db.Model):
     __tablename__ = "users"
@@ -91,7 +82,7 @@ class BlogPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # Create Foreign Key, "users.id" the users refers to the tablename of User.
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    # Create reference to the User object, the "posts" refers to the posts protperty in the User class.
+    # Create reference to the User object, the "posts" refers to the posts property in the User class.
     author = relationship("User", back_populates="posts")
     title = db.Column(db.String(250), unique=True, nullable=False)
     subtitle = db.Column(db.String(250), nullable=False)
@@ -159,7 +150,7 @@ def login():
     if form.validate_on_submit():
         email = form.email.data
         password = form.password.data
-        #  Find user by email entered
+        # Find user by email entered
         user = User.query.filter_by(email=email).first()
         # If email doesn't exist
         if not user:

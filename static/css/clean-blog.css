@@ -560,3 +560,15 @@ form input#submit:hover{
     width: 350px;
     height: 325px;
 }
+
+@media screen and (max-width: 900px) {
+    .carousel {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .categories {
+        display: none;
+    }
+}

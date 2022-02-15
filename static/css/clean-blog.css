@@ -556,12 +556,6 @@ form input#submit:hover{
     padding: 30px 0 10px 0;
 }
 
-.portfolio-heading {
-    text-align: center;
-    font-size: 36px;
-    padding: 50px 0 10px 0;
-}
-
 .card-img-top {
     width: 350px;
     height: 325px;
